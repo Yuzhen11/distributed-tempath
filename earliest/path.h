@@ -56,6 +56,7 @@ public:
             {
                 send_message(value().neighbors[i], (*it).first+(*it).second);
                 value().pn[i] = it-value().v_time[i].begin();
+                it++;
             }
 
         }

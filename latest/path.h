@@ -53,19 +53,22 @@ public:
             vector<pair<int, int> >:: iterator vstart = value().v_time[i].begin()+value().pn[i];
             it = upper_bound(vstart, value().v_time[i].end(), tmp);
             
-            if (it != value().v_time[i].begin() && vstart != value().v_time[i].end())
+            if (vstart != value().v_time[i].end())
             {
             	if (it->first == startTime) //not so cool 
             	{
             		send_message(value().neighbors[i], (*it).first-(*it).second);
 	        	it++;
 	        	value().pn[i] = it - value().v_time[i].begin();
-	        	continue;
+	        	//continue;
             	}
-	    	it--;
-	        send_message(value().neighbors[i], (*it).first-(*it).second);
-	        it++;
-	        value().pn[i] = it - value().v_time[i].begin();
+            	else if (it != value().v_time[i].begin() )
+            	{
+		    	it--;
+			send_message(value().neighbors[i], (*it).first-(*it).second);
+			it++;
+			value().pn[i] = it - value().v_time[i].begin();
+		}
 	    
 	    }
 	    /*
