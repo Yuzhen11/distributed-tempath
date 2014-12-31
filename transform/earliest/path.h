@@ -58,6 +58,7 @@ public:
 	if (step_num() == 1)
 	{
 	    vis = 0;
+	    arrivalTime = inf;
 	    if (value().originalID == src) 
 	    {
 	    	vis = 1;

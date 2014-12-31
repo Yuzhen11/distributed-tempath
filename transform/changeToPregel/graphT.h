@@ -72,7 +72,7 @@ int GraphT::output(string s)
 
 
 	fstream out;
-	string sdata = s + "T.txt";
+	string sdata = s + "T";
 	cout << "writing to " << sdata << " ..." << endl;
 	out.open(sdata.c_str(), ios::out);
 	

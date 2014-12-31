@@ -58,6 +58,7 @@ public:
 	if (step_num() == 1)
 	{
 	    start = -1;
+	    arrivalTime = inf; // set arrivalTime
 	    if (value().originalID == src) 
 	    {
 	    	start = value().timestamp;
