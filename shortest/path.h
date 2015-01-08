@@ -44,7 +44,7 @@ ibinstream & operator<<(ibinstream & m, const vertexValue & v){
     m << v.pn;
     return m;
 }
-obinstream & operator>>(obinstream & m, pair<int,int> p)
+obinstream & operator>>(obinstream & m, pair<int,int> & p)
 {m >> p.first >> p.second; return m;}
 obinstream & operator>>(obinstream & m, vertexValue & v){
     m >> v.arrivalTime;

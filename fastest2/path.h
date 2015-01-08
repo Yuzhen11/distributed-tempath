@@ -5,6 +5,7 @@
 #include <map>
 #include <algorithm>
 #include <iostream>
+#include <assert.h>
 using namespace std;
 
 const int inf = 1e9;
@@ -44,13 +45,12 @@ ibinstream & operator<<(ibinstream & m, const vertexValue & v){
     m << v.pn;
     return m;
 }
-obinstream & operator>>(obinstream & m, pair<int,int> p)
+obinstream & operator>>(obinstream & m, pair<int,int>& p)
 {m >> p.first >> p.second; return m;}
 obinstream & operator>>(obinstream & m, vertexValue & v){
     m >> v.arrivalTime;
     m >> v.num_of_neighbors;
-    m >> v.v_time;
-    m >> v.neighbors;
+    m >> v.v_time;   m >> v.neighbors;
     m >> v.pn;
     return m;
 }
@@ -85,7 +85,7 @@ public:
             else
             {
                 value().arrivalTime = inf;
-            }
+            }           
         }
         else
         {
@@ -174,8 +174,11 @@ public:
             {
                 ssin >> t;
                 v->value().v_time[i].push_back(make_pair(t, w));
+                
             }
+            
         }
+        
         return v;
         //cout << "load done" << endl;
     }

@@ -84,12 +84,19 @@ public:
         
         if (step_num() == 2 && value().timestamp < 0)
         {
+            //startPoint
+            if (value().originalID == src) 
+            {
+            	arrivalTime = 0;
+            }
+            else {
        	    int mini = inf;
             for (int i = 0; i < messages.size(); ++ i) 
             {
             	if (messages[i] < mini) mini = messages[i];
             }
             arrivalTime = mini;
+            }
         }
         vote_to_halt();
     }
